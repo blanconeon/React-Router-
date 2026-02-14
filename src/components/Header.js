@@ -15,18 +15,20 @@ export default function Header () {
   }
 
   // Replace the 4 <a> tags with <NavLink> components
+
+  //NAVlINK CREATES A CLASS IN CSS TAUTOMATICALLY CALLED ACTIVE ADJUSTING BOLDNESS ?????
   return (
     <div className="header">
-      <NavLink to="/about">About</NavLink>
-      <NavLink to="/articles">Articles</NavLink>
-      <NavLink to="/categories">Categories</NavLink>
+      <NavLink to="about">About</NavLink>
+      <NavLink to="articles">Articles</NavLink>
+      <NavLink to="categories">Categories</NavLink>
       {
         currentUser.username
           ? <>
-              <a href="/profile">Profile</a>
+              <NavLink href="/profile">Profile</NavLink>
               <button onClick={handleLogout} className="logout"> Log Out </button>
             </>
-          : <a href="/sign-up">Sign Up</a>
+          : <NavLink href="/sign-up">Sign Up</NavLink>
         }
     </div>
   )
