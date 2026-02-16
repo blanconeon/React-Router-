@@ -7,7 +7,7 @@ import {NavLink } from 'react-router-dom';
 // Import the NavLink component.
 
 export default function Header () {
-  const currentUser = useSelector(selectCurrentUser);
+  const user = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
 
   const handleLogout = e => {
@@ -22,13 +22,14 @@ export default function Header () {
       <NavLink to="about">About</NavLink>
       <NavLink to="articles">Articles</NavLink>
       <NavLink to="categories">Categories</NavLink>
+      
       {
-        currentUser.username
+        user.username
           ? <>
-              <NavLink href="/profile">Profile</NavLink>
+              <NavLink to="profile">Profile</NavLink>
               <button onClick={handleLogout} className="logout"> Log Out </button>
             </>
-          : <NavLink href="/sign-up">Sign Up</NavLink>
+          : <NavLink to="sign-up">Sign Up</NavLink>
         }
     </div>
   )
