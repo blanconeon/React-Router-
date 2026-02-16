@@ -19,10 +19,15 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='about' element= {<About/>} />
     <Route path='sign-up' element={<SignUp/>} />
     <Route path='articles' element={<Articles/>} />
-    <Route path='categories' element={<Categories/>} />
+
+    <Route path='categories' element={<Categories/>}>
+    <Route path=':name' element={<Category/>}/>{/*parent-child + nested*/}
+    </Route>
+  
     <Route path='profile' element={<Profile/>} >
     <Route path='edit' element={<EditProfileForm/>}/>
     </Route>{ /*for this profile parent-child React Router combines them to create /profile/edit in the URL. You do not need to add the / in the child path—React Router handles it for you. */ }
+
     <Route path='articles/:title' element={<Article/>} />
     <Route path='authors/:name' element={<Author/>} />
    
