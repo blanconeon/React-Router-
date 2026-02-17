@@ -9,8 +9,10 @@ export default function Profile () {
   const user = useSelector(selectCurrentUser)
   const loggedIn = useSelector(selectIsLoggedIn);
   
-  // use loggedIn to return a Navigate
-
+  // use loggedIn to return a Navigate. makes sure the path /profile is only accesible when user is logged in. 
+  if (!loggedIn) {
+    return (<Navigate to='/sign-up' />)
+  }
   return (
     <main>
       <h1>{user.username}</h1>
